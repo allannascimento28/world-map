@@ -1,0 +1,323 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    background-color: white;
+}
+
+#loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 100000;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#loading img {
+    width: 10%;
+    height: 10%;
+    margin: auto;
+}
+
+#logo {
+    position: absolute;
+    top: 15px;
+    left: calc(50vw - 500px);
+    width: 100px;
+}
+
+pre {
+    font-size: 7em;
+}
+
+.marks .land {
+    fill: #654321;
+}
+
+.marks .sphere {
+    fill: #b5d3e7;
+}
+
+.marks .interiors {
+    fill: none;
+    stroke: #0000a8;
+}
+
+.marks .graticules {
+    fill: none;
+    stroke: #dadada;
+}
+
+.menu.side {
+    width: 1000px;
+    color: black;
+    position: absolute;
+    top: 90px;
+    left: calc(50vw - 500px);
+    padding: 0;
+}
+
+.menu {
+    float: left;
+    padding: 15px;
+}
+
+svg {
+    /*padding: 20px;*/
+    /* background: rgba(0, 0, 0, 0.15); */
+    clear: left;
+    float: left;
+    margin: 150px calc(50vw - 500px) 50px;
+}
+
+/* the buttons on the right --> GLOBE, MAP... */
+.menu .button {
+    /* margin: 10px; */
+    /* padding: 15px 16px; */
+    text-transform: uppercase;
+    border: 1px solid #eee;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background: #272d4d;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    text-align: center;
+    line-height: 46px;
+    vertical-align: middle;
+    min-width: 84px;
+    height: 46px;
+}
+
+.menu .title {
+    float: left;
+    margin-left: 20%;
+}
+
+.menu .title .head-title {
+    margin: 0;
+    margin-bottom: 10px;
+    float: none;
+    width: 100%;
+}
+
+.menu .title .sub-title {
+    margin: 0;
+}
+
+.menu .button.play {
+    float: right;
+}
+
+.menu .button:hover {
+    background: #2b67d8;
+}
+
+/* the buttons on the left */
+.menu .button2 {
+    margin: 10px;
+    /* padding: 0 16px; */
+    text-transform: uppercase;
+    border: 1px solid #eee;
+    float: left;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    background: rgba(158, 158, 158, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+        0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    text-align: center;
+    /* line-height: 36px; */
+    vertical-align: middle;
+    min-width: 36px;
+    /* height: 36px; */
+}
+
+.menu .button2 img {
+}
+
+.colors {
+    position: relative;
+    clear: left;
+    padding: 20px;
+    float: left;
+}
+.colors input {
+    width: 60px;
+    border: none;
+    float: left;
+    padding: 10px;
+}
+
+/* the legend */
+text.label {
+    font-size: 13px;
+    fill: black;
+}
+
+/* the circle that stays when we change the zoom */
+.water {
+    fill: none;
+    stroke: none;
+}
+
+.d2.water {
+    stroke: none;
+}
+
+/* the lines between the countries */
+.land {
+    fill: #888;
+    stroke: rgba(0, 0, 0, 0.36);
+    stroke-width: 0.7px;
+}
+
+/* the hover over the country */
+.land:hover {
+    fill: red;
+    stroke-width: 3px;
+    cursor: pointer;
+}
+
+.focused {
+    fill: #33cc33;
+}
+
+/* the color of the globe and the squares */
+.graticule {
+    fill: none;
+    fill: #e3f2fd;
+    stroke: none;
+}
+
+.noData {
+    mask: url(#mask-stripe);
+}
+
+select {
+    position: absolute;
+    top: 20px;
+    left: 580px;
+    border: solid #ccc 1px;
+    padding: 3px;
+    box-shadow: inset 1px 1px 2px #ddd8dc;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(39, 45, 77, 0.8);
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+.d3-tip > p {
+    margin: 5px;
+}
+
+.d3-tip .info-title {
+    font-size: 20px;
+}
+
+.d3-tip .info-head {
+    font-size: 14px;
+    width: 240px;
+    display: inline-block;
+    font-weight: 100;
+}
+
+.d3-tip .info-cont {
+    font-size: 16px;
+}
+
+.d3-tip .btn-cont {
+    cursor: pointer;
+}
+
+.color-1 {
+    color: #98fd07;
+}
+
+.color-2 {
+    color: #07fdf4;
+}
+
+.color-3 {
+    color: #fd0737;
+}
+
+.color-4 {
+    color: #fd8807;
+}
+
+.color-5 {
+    color: #07fd50;
+}
+
+.color-5 {
+    color: #fd07da;
+}
+
+.color-6 {
+    color: #fdda07;
+}
+
+.palette {
+    padding: 10px;
+    float: left;
+    width: 860px;
+}
+
+/* Views and Dates */
+h4 {
+    float: left;
+    /* clear: left; */
+    width: 80%;
+}
+
+.legendTitle {
+    font-weight: bold;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-size: 11px;
+}
